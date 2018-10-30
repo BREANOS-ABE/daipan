@@ -1,0 +1,49 @@
+﻿{
+  "ContentTypeValues": [
+    {
+      "content": "KpuRegistration",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://AssistantQueue"
+        }
+      }
+    },
+    {
+      "content": "Package",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://AssistantQueue"
+        }
+      }
+    },
+    {
+      "content": "PackageRequest",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://KpuQueue"
+        }
+      }
+    },
+    {
+      "content": "ExecuteRequest",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://KpuQueue"
+        }
+      }
+    },
+    {
+      "content": "ModelUpdate",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://AssistantQueue"
+        }
+      }
+    }
+  ]
+}
