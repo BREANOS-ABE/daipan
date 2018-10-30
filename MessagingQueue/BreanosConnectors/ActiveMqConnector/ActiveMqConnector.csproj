@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>BreanosConnectors.ActiveMqConnector</PackageId>
+    <Version>0.7</Version>
+    <Company>Breanos GmbH</Company>
+    <Product>DAIPAN</Product>
+    <Authors>Breanos GmbH</Authors>
+    <Copyright>Breanos GmbH 2016-2018</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.1\ActiveMqConnector.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.1\ActiveMqConnector.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ.Core" Version="1.7.2.1" />
+    <PackageReference Include="Apache.NMS.Core" Version="1.7.1.1" />
+    <PackageReference Include="NLog" Version="4.5.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BreanosConnectors.Interface\BreanosConnectors.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

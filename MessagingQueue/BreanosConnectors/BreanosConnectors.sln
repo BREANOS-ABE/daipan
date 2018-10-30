@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreanosConnectors.Interface", "BreanosConnectors.Interface\BreanosConnectors.Interface.csproj", "{95542F8B-8942-47B6-9BC1-F4E5BE95219B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActiveMqConnector", "ActiveMqConnector\ActiveMqConnector.csproj", "{468746E9-E478-4BDA-B29D-C90370436846}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreanosConnectors.SerializationHelper", "BreanosConnectors.SerializationHelper\BreanosConnectors.SerializationHelper.csproj", "{9FA7E407-52CC-4F3F-B166-4FF48CC95274}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpcUaConnector", "OpcUaConnector\OpcUaConnector.csproj", "{95EE8C7F-88AC-4403-8E9D-AE9EB3EA57D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveMqConnector_FW", "ActiveMqConnector_FW\ActiveMqConnector_FW.csproj", "{2836AE73-DFE9-4A63-BBCC-B9CF8684D402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreanosConnectors.Interface_FW", "BreanosConnectors.Interface_FW\BreanosConnectors.Interface_FW.csproj", "{CC70E1D1-A1C3-4F14-9E1C-CA86844D88B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreanosConnectors.SerializationHelper_FW", "BreanosConnectors.SerializationHelper_FW\BreanosConnectors.SerializationHelper_FW.csproj", "{C6BEA06E-A4F7-44F0-BAAE-76721A5D1B59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreanosConnectors.Kpu.Communication.Common", "BreanosConnectors.Kpu.Communication.Common\BreanosConnectors.Kpu.Communication.Common.csproj", "{4D274807-66CB-499C-8084-D339B21C701D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreanosConnectors.SerializationHelper.Standard", "BreanosConnectors.SerializationHelper.Standard\BreanosConnectors.SerializationHelper.Standard.csproj", "{1C5E3144-5C3D-4E3E-A9EE-9CDBC6A27A8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreanosConnectors.Utilities", "BreanosConnectors.Utilities\BreanosConnectors.Utilities.csproj", "{DA6C7AEF-DF5A-47AB-8C98-F0F629AB37D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreanosConnectors.Kpu.Communication.Utilities", "BreanosConnectors.Kpu.Communication.Utilities\BreanosConnectors.Kpu.Communication.Utilities.csproj", "{39D1EB1D-41D1-40A9-A9C1-10993DD5EAB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95542F8B-8942-47B6-9BC1-F4E5BE95219B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95542F8B-8942-47B6-9BC1-F4E5BE95219B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95542F8B-8942-47B6-9BC1-F4E5BE95219B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95542F8B-8942-47B6-9BC1-F4E5BE95219B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{468746E9-E478-4BDA-B29D-C90370436846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468746E9-E478-4BDA-B29D-C90370436846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468746E9-E478-4BDA-B29D-C90370436846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468746E9-E478-4BDA-B29D-C90370436846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA7E407-52CC-4F3F-B166-4FF48CC95274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA7E407-52CC-4F3F-B166-4FF48CC95274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA7E407-52CC-4F3F-B166-4FF48CC95274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA7E407-52CC-4F3F-B166-4FF48CC95274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95EE8C7F-88AC-4403-8E9D-AE9EB3EA57D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95EE8C7F-88AC-4403-8E9D-AE9EB3EA57D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95EE8C7F-88AC-4403-8E9D-AE9EB3EA57D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95EE8C7F-88AC-4403-8E9D-AE9EB3EA57D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2836AE73-DFE9-4A63-BBCC-B9CF8684D402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2836AE73-DFE9-4A63-BBCC-B9CF8684D402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2836AE73-DFE9-4A63-BBCC-B9CF8684D402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2836AE73-DFE9-4A63-BBCC-B9CF8684D402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC70E1D1-A1C3-4F14-9E1C-CA86844D88B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC70E1D1-A1C3-4F14-9E1C-CA86844D88B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC70E1D1-A1C3-4F14-9E1C-CA86844D88B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC70E1D1-A1C3-4F14-9E1C-CA86844D88B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6BEA06E-A4F7-44F0-BAAE-76721A5D1B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6BEA06E-A4F7-44F0-BAAE-76721A5D1B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6BEA06E-A4F7-44F0-BAAE-76721A5D1B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6BEA06E-A4F7-44F0-BAAE-76721A5D1B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D274807-66CB-499C-8084-D339B21C701D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D274807-66CB-499C-8084-D339B21C701D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D274807-66CB-499C-8084-D339B21C701D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D274807-66CB-499C-8084-D339B21C701D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5E3144-5C3D-4E3E-A9EE-9CDBC6A27A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5E3144-5C3D-4E3E-A9EE-9CDBC6A27A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5E3144-5C3D-4E3E-A9EE-9CDBC6A27A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5E3144-5C3D-4E3E-A9EE-9CDBC6A27A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6C7AEF-DF5A-47AB-8C98-F0F629AB37D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6C7AEF-DF5A-47AB-8C98-F0F629AB37D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6C7AEF-DF5A-47AB-8C98-F0F629AB37D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6C7AEF-DF5A-47AB-8C98-F0F629AB37D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D1EB1D-41D1-40A9-A9C1-10993DD5EAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D1EB1D-41D1-40A9-A9C1-10993DD5EAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D1EB1D-41D1-40A9-A9C1-10993DD5EAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D1EB1D-41D1-40A9-A9C1-10993DD5EAB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEEBFF95-6222-4408-90AF-7D9C2977C49C}
+	EndGlobalSection
+EndGlobal
