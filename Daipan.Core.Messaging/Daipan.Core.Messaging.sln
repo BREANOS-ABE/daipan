@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daipan.Core.Messaging.Contracts", "Daipan.Core.Messaging.Contracts\Daipan.Core.Messaging.Contracts.csproj", "{457E403B-4F47-4EFC-BFDE-06F8B783319D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daipan.Core.Messaging.General", "Daipan.Core.Messaging.General\Daipan.Core.Messaging.General.csproj", "{402AFF50-2EB3-4953-8018-C0FF0198B579}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daipan.Core.Messaging.Siemens", "Daipan.Core.Messaging.Siemens\Daipan.Core.Messaging.Siemens.csproj", "{7C5DC1C0-DDD1-48F5-BCD4-598C5D6FC61A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{8D6F2BBC-28DA-41A8-A072-3A9F54159EE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagingTest", "MessagingTest\MessagingTest.csproj", "{8FA0186B-B51B-4069-9939-CDD774267076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{457E403B-4F47-4EFC-BFDE-06F8B783319D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457E403B-4F47-4EFC-BFDE-06F8B783319D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457E403B-4F47-4EFC-BFDE-06F8B783319D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457E403B-4F47-4EFC-BFDE-06F8B783319D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{402AFF50-2EB3-4953-8018-C0FF0198B579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402AFF50-2EB3-4953-8018-C0FF0198B579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402AFF50-2EB3-4953-8018-C0FF0198B579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402AFF50-2EB3-4953-8018-C0FF0198B579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5DC1C0-DDD1-48F5-BCD4-598C5D6FC61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5DC1C0-DDD1-48F5-BCD4-598C5D6FC61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5DC1C0-DDD1-48F5-BCD4-598C5D6FC61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5DC1C0-DDD1-48F5-BCD4-598C5D6FC61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6F2BBC-28DA-41A8-A072-3A9F54159EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6F2BBC-28DA-41A8-A072-3A9F54159EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6F2BBC-28DA-41A8-A072-3A9F54159EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6F2BBC-28DA-41A8-A072-3A9F54159EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA0186B-B51B-4069-9939-CDD774267076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA0186B-B51B-4069-9939-CDD774267076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA0186B-B51B-4069-9939-CDD774267076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA0186B-B51B-4069-9939-CDD774267076}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77A98F46-76CB-4C73-9ABE-1F9385A36F5A}
+	EndGlobalSection
+EndGlobal
