@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessControlService.Interfaces", "AccessControlService.Interfaces\AccessControlService.Interfaces.csproj", "{9F13D83F-E97C-440E-96BE-A8637183E49E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControlService.Data", "AccessControlService.Data\AccessControlService.Data.csproj", "{2BBB0017-50C6-41A2-A849-B36FE62E0D59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F13D83F-E97C-440E-96BE-A8637183E49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F13D83F-E97C-440E-96BE-A8637183E49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F13D83F-E97C-440E-96BE-A8637183E49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F13D83F-E97C-440E-96BE-A8637183E49E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBB0017-50C6-41A2-A849-B36FE62E0D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBB0017-50C6-41A2-A849-B36FE62E0D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBB0017-50C6-41A2-A849-B36FE62E0D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBB0017-50C6-41A2-A849-B36FE62E0D59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {781534A5-1AA1-479C-BAF4-907B001823DC}
+	EndGlobalSection
+EndGlobal

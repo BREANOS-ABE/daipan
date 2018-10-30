@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <!-- Add your custom configuration sections and parameters here -->
+
+  <Section Name="AccessControl">
+    <Parameter Name="IdentityProvider" Value="BreanosIdentityProvider"/>
+    <Parameter Name="MenuProvider" Value="DummyMenuProvider"/>
+  </Section>
+  <Section Name="AccessControl.ServiceContext">
+    <Parameter Name="ConnectionString" Value="data source=BRE-SQL01\SQL2016;initial catalog=ACSSecurity;integrated security=True;multipleactiveresultsets=True;application name=AccessControlService"/>
+    <!--<Parameter Name="ConnectionString" Value="data source=BRE-SQL01\SQL2016;initial catalog=ACSSecurity;integrated security=False;User ID=eduard;Password=Pa$$w0rd;multipleactiveresultsets=True;application name=AccessControlService"/>-->
+    <!--<Parameter Name="ConnectionString" Value="data source=192.168.50.50\SQL2017;initial catalog=ACSSecurity;integrated security=False;User ID=eduard;Password=Pa$$w0rd;multipleactiveresultsets=True;application name=AccessControlService"/>-->
+    <Parameter Name="providerName" Value="System.Data.SqlClient"/>
+  </Section>
+  <Section Name="BreanosIdentityProvider.ServiceContext">
+    <!--<Parameter Name="ConnectionString" Value="data source=BRE-SQL01\SQL2016;initial catalog=ACSSecurity;integrated security=False;User ID=eduard;Password=Pa$$w0rd;multipleactiveresultsets=True;application name=BreanosIdentityProvider"/>-->
+    <Parameter Name="ConnectionString" Value="data source=BRE-SQL01\SQL2016;initial catalog=ACSSecurity;integrated security=True;multipleactiveresultsets=True;application name=BreanosIdentityProvider"/>
+    <!--<Parameter Name="ConnectionString" Value="data source=192.168.50.50\SQL2017;initial catalog=ACSSecurity;integrated security=False;User ID=eduard;Password=Pa$$w0rd;multipleactiveresultsets=True;application name=BreanosIdentityProvider"/>-->
+    <Parameter Name="providerName" Value="System.Data.SqlClient"/>
+  </Section>
+  <Section Name="WpfMenuProvider.ServiceContext">
+    <Parameter Name="ConnectionString" Value="data source=BRE-SQL01\SQL2016;initial catalog=ACSSecurity;integrated security=True;multipleactiveresultsets=True;application name=BreanosIdentityProvider"/>
+    <Parameter Name="providerName" Value="System.Data.SqlClient"/>
+  </Section>
+</Settings>

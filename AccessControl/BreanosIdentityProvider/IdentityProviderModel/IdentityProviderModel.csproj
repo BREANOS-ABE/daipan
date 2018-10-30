@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+	    <Version>0.7</Version>
+    <Company>Breanos GmbH</Company>
+    <Product>DAIPAN</Product>
+    <Authors>Breanos GmbH</Authors>
+    <Copyright>Breanos GmbH 2016-2018</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityProvider.Interfaces" Version="0.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0-preview2-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0-preview2-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="IdentityProviderModel.csproj.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+
+</Project>

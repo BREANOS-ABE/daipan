@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	    <Version>0.7</Version>
+    <Company>Breanos GmbH</Company>
+    <Product>DAIPAN</Product>
+    <Authors>Breanos GmbH</Authors>
+    <Copyright>Breanos GmbH 2016-2018</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="AccessControlService.Interfaces.csproj.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BreanosConnectors.Kpu.Communication.Common" Version="0.0.13" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.0.480" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccessControlService.Data\AccessControlService.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="smileBig.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
