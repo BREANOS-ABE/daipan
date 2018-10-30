@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="AssistantType" ApplicationTypeVersion="1.0.2" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="PresenterService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="SecurityService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="ExternalCommunicationService_InstanceCount" DefaultValue="1" />
+    <Parameter Name="CoreService_InstanceCount" DefaultValue="1" />
+    <Parameter Name="BlackboardActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="BlackboardActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="BlackboardActorService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="TransformatorActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="TransformatorActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="TransformatorActorService_TargetReplicaSetSize" DefaultValue="1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="TransformatorActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="BlackboardActorCorePkg" ServiceManifestVersion="1.0.2" />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" />
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="PresenterServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ExternalCommunicationServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SecurityServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="CoreServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" />
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="PresenterService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="PresenterServiceType" InstanceCount="[PresenterService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="SecurityService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="SecurityServiceType" InstanceCount="[SecurityService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="CoreService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="CoreServiceType" InstanceCount="[CoreService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="ExternalCommunicationService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="ExternalCommunicationServiceType" InstanceCount="[ExternalCommunicationService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="BlackboardActorService" GeneratedIdRef="8db7742e-ec6d-4e3c-944c-534dde3fb9cd|Persisted">
+      <StatefulService ServiceTypeName="BlackboardActorServiceType" TargetReplicaSetSize="[BlackboardActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BlackboardActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BlackboardActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="TransformatorActorService" GeneratedIdRef="5b047fa8-3d05-4308-883c-b1e0fe991204|Persisted">
+      <StatefulService ServiceTypeName="TransformatorActorServiceType" TargetReplicaSetSize="[TransformatorActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TransformatorActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[TransformatorActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Users>
+      <User Name="LocalAdmin" AccountType="NetworkService">
+        <MemberOf>
+          <SystemGroup Name="Administratoren" />
+          <!--<SystemGroup Name="Administrators" />-->
+        </MemberOf>
+      </User>
+      <!--<User Name="SetupLocalSystem" AccountType="LocalSystem" />-->
+    </Users>
+  </Principals>
+</ApplicationManifest>

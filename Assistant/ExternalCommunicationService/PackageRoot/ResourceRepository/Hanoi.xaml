@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daipan.XClient.Views.Detail">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="5,20,5,5" />
+            <On Platform="Android, WinPhone, Windows" Value="5,0,5,5" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>-->
+        <!-- <Rectangle Grid.Column="1" Width="10" Height="300" Grid.Row="0" Fill="Black"/> -->
+        <!-- <Rectangle Grid.Column="2" Width="10" Height="300" Grid.Row="0" Fill="Black"/> -->
+        <!-- <Rectangle Grid.Column="3" Width="10" Height="300" Grid.Row="0" Fill="Black"/> -->
+        <AbsoluteLayout>
+            <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="1,.5,1,.5" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions = "End">
+                    <ListView CachingStrategy="RecycleElement" x:Name="lvStack1"  ItemsSource="{Binding ODic[Stack1]}" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid HeightRequest="20">
+                                        <Label Text="{Binding Width}" />
+                                        <BoxView BackgroundColor="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                    </Grid>
+                                    <!--<StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Guid}" />
+                                    <BoxView BackgroundColor="Transparent" Color="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                </StackLayout>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout VerticalOptions = "End">
+                    <ListView CachingStrategy="RecycleElement" x:Name="lvStack2"  ItemsSource="{Binding ODic[Stack2]}" VerticalOptions="End">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid HeightRequest="20">
+                                        <Label Text="{Binding Width}" />
+                                        <BoxView BackgroundColor="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                    </Grid>
+                                    <!--<StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Guid}" />
+                                    <BoxView BackgroundColor="Transparent" Color="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                </StackLayout>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout VerticalOptions = "StartAndExpand">
+                    <ListView CachingStrategy="RecycleElement" x:Name="lvStack3" ItemsSource="{Binding ODic[Stack3]}" VerticalOptions="End">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid HeightRequest="20">
+                                        <Label Text="{Binding Width}" />
+                                        <BoxView BackgroundColor="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                    </Grid>
+                                    <!--<StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Guid}" />
+                                    <BoxView BackgroundColor="Transparent" Color="Red" HeightRequest="20" WidthRequest="{Binding Width}" HorizontalOptions="CenterAndExpand"  />
+                                </StackLayout>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <!--<TextBox Width="80" Height="20" Text="{Binding StackSize}" Grid.Row="1" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Center" /> -->
+                <Button x:Name="btnRestart" Text="Restart" Command="{Binding RequestExecute}" CommandParameter="Hanoi setup 4" />
+                <Button x:Name="btnRound" Text="Round" Command="{Binding RequestExecute}" CommandParameter="Hanoi r" />
+            </StackLayout>
+            <!--/Grid>-->
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

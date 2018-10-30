@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daipan.XClient.Views.Detail">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="5,20,5,5" />
+            <On Platform="Android, WinPhone, Windows" Value="5,0,5,5" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentView>
+        <Grid x:Name="mainGrid" ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout x:Name="textStack" Grid.Row="0" Grid.Column="1" Spacing="0">
+                <StackLayout HorizontalOptions="Center" Spacing="0" Margin="10,50,10,50">
+                    <BoxView Color="DarkRed" HeightRequest="3" />
+                    <Label Text="I have loaded the Driller!" Font="Bold, Large" TextColor="Accent" />
+                    <BoxView Color="DarkRed" HeightRequest="3" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                    <BoxView Color="DarkRed" HeightRequest="50" />
+                    <BoxView Color="DarkBlue" HeightRequest="50" />
+                    <BoxView Color="DarkGray" HeightRequest="50" />
+                    <BoxView Color="DarkGreen" HeightRequest="50" />
+                    <BoxView Color="DarkGoldenrod" HeightRequest="50" />
+                    <BoxView Color="DarkKhaki" HeightRequest="50" />
+                    <BoxView Color="DarkOrange" HeightRequest="50" />
+                </StackLayout>
+                <Button Command="{Binding RequestExecute}" CommandParameter="Driller1 start"/>
+                <Button Command="{Binding RequestExecute}" CommandParameter="Driller1 stop"/>
+                <Button Command="{Binding RequestExecute}" CommandParameter="Driller1 forward 20"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                    <Label Text="And, frankly, my dear, I don't give a damn." Font="Bold, Large" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentView>
+</ContentPage>
