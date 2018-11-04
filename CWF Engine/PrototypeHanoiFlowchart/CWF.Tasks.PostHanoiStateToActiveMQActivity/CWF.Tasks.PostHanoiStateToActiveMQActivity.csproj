@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BreanosConnectors.ActiveMQConnector" Version="0.0.15" />
+    <PackageReference Include="BreanosConnectors.SerializationHelper" Version="0.0.5.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.2.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HanoiLibraryStandard\HanoiLibraryStandard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CWF.Core">
+      <HintPath>..\..\Wexflow.Core.Core\bin\Debug\netcoreapp2.1\CWF.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Debug (xcopy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\cwf\Activities\&quot; /Y )" />
+  </Target>
+
+</Project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Cwf>
+  <Setting name="workflowsFolder" value="C:\Cwf\Workflows" />
+  <Setting name="trashFolder" value="C:\Cwf\Trash" />
+  <Setting name="tempFolder" value="C:\Cwf\Temp" />
+  <Setting name="xsd" value="C:\Cwf\Workflow.xsd" />
+  <Setting name="tasksNamesFile" value="C:\Cwf\TasksNames.json" />
+  <Setting name="tasksSettingsFile" value="C:\Cwf\TasksSettings.json" />
+  <Setting name="activitiesFolder" value="C:\Cwf\Activities" />
+  <Setting name="fsmFolder" value="C:\Cwf\FSM" />
+</Cwf>

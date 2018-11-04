@@ -1,0 +1,51 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+    <!-- The identifier that must be unique within the hosting gallery -->
+    <id>Cwf.Core.Core</id>
+
+    <!-- The package version number that is used when resolving dependencies -->
+    <version>0.0.3</version>
+
+    <!-- Authors contain text that appears directly on the gallery -->
+    <authors>Bezdedeanu, Kellner</authors>
+
+    <!-- Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.  -->
+    <owners>Bezdedeanu, Kellner</owners>
+
+    <!-- License and project URLs provide links for the gallery -->
+    <licenseUrl>http://bre-tfs02:8080/tfs/daipan/_git/cwf%20engine/</licenseUrl>
+    <projectUrl>http://bre-tfs02:8080/tfs/daipan/_git/cwf%20engine/</projectUrl>      
+
+      <!-- If true, this value prompts the user to accept the license when
+            installing the package. -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <!-- Any details about this particular release -->
+    <releaseNotes>Updated interfaces</releaseNotes>
+
+    <!-- The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal. -->
+    <description>Cwf.Core implementation</description>
+
+    <!-- Copyright information -->
+    <copyright>Copyright ©2018 Breanos GmbH</copyright>
+
+    <!-- Tags appear in the gallery and can be used for tag searches -->
+    <tags>Cwf Workflow Brainflow</tags>
+
+    <!-- Dependencies are automatically installed when the package is installed -->
+    <dependencies>
+        <!--<dependency id="Newtonsoft.Json" version="9.0" />-->
+      <dependency id="NLog" version="4.5.4" />
+    </dependencies>
+    </metadata>
+
+    <!-- A readme.txt to display when the package is installed -->
+    <files>
+      <file src="bin\Debug\netcoreapp2.1\Cwf.Core.dll" target="lib/netstandard2.0"/>
+      <file src="bin\Debug\netcoreapp2.1\Cwf.Core.pdb" target="lib/netstandard2.0"/>
+        <!--<file src="readme.txt" target="" />-->
+    </files>
+</package>

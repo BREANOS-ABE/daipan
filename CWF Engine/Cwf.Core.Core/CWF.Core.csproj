@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>0.0.21</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright ©2018 Breanos GmbH</Copyright>
+    <PackageLicenseUrl>http://bre-tfs02:8080/tfs/Demos/_git/Wexflow ProductDefinition</PackageLicenseUrl>
+    <PackageProjectUrl>http://bre-tfs02:8080/tfs/Demos/_git/Wexflow ProductDefinition</PackageProjectUrl>
+    <Description>CyPAN Workflow Foundation 1.0, original derived from Wexflow Workflow Engine.</Description>
+    <PackageTags>Wexflow Workflow Brainflow BIF CyPAN</PackageTags>
+    <PackageId>CWF.Core</PackageId>
+    <Authors>Copyright ©2018 Breanos GmbH</Authors>
+    <Product>CyPAN Workflow Foundation 1.0</Product>
+    <AssemblyVersion>0.0.21.0</AssemblyVersion>
+    <FileVersion>0.0.21.0</FileVersion>
+    <AssemblyName>CWF.Core</AssemblyName>
+    <RootNamespace>CWF.Core</RootNamespace>
+    <Company>Breanos GmbH</Company>
+    <PackageReleaseNotes>First version ready for Service Fabric</PackageReleaseNotes>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Configurations>Debug;Release;Debug - no copy</Configurations>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ExecutionGraph\" />
+    <Folder Include="xsd\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BreanosConnectors.ActiveMQConnector" Version="0.0.15" />
+    <PackageReference Include="BreanosConnectors.SerializationHelper" Version="0.0.5.1" />
+    <PackageReference Include="CyPAN.RuntimeAssemblyBuilder.Standard" Version="0.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.2.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

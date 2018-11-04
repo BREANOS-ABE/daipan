@@ -1,0 +1,136 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:cwf-schema"
+    elementFormDefault="qualified"
+    targetNamespace="urn:cwf-schema">
+
+ <xsd:element name="Workflow" type="workflowType"/>
+
+ <xsd:complexType name="workflowType">
+   <xsd:sequence>
+     <xsd:element name="Settings" type="settingsType" maxOccurs="1"/>
+     <xsd:element name="Activities"  type="activitiesType" maxOccurs="1"/>
+	 <xsd:element name="Transitions"  type="transitionsType" maxOccurs="1"/>
+     <xsd:element name="ActivitySetup"  type="executionGraphType" minOccurs="0"/>	
+   </xsd:sequence>
+   <xsd:attribute name="id" type="xsd:integer"/>
+   <xsd:attribute name="name" type="xsd:string"/>
+   <xsd:attribute name="description" type="xsd:string"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="settingsType">
+   <xsd:sequence maxOccurs="unbounded">
+     <xsd:element name="Setting" type="settingType"/>
+   </xsd:sequence>
+ </xsd:complexType>
+ 
+ <xsd:complexType name="settingType">
+   <xsd:attribute name="name" type="xsd:string" use="required"/>
+   <xsd:attribute name="value" type="xsd:string" use="optional"/>
+   <xsd:anyAttribute processContents="skip" />
+ </xsd:complexType>
+ 
+ <xsd:complexType name="activitiesType">
+   <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+     <xsd:element name="Activity" type="activityType"/>	
+   </xsd:sequence>   
+ </xsd:complexType>
+ 
+ <xsd:complexType name="transitionsType">
+   <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+     <xsd:element name="Transition" type="transitionType"/>	
+   </xsd:sequence>   
+ </xsd:complexType>
+ 
+ <xsd:complexType name="transitionType">
+    <xsd:attribute name="id" type="xsd:integer"/>
+	<xsd:attribute name="from" type="xsd:integer"/>
+	<xsd:attribute name="to" type="xsd:integer"/>
+	<xsd:attribute name="condition" type="xsd:string"/>
+</xsd:complexType>
+
+ <xsd:complexType name="activityType">
+   <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+     <xsd:element name="Setting" type="settingType"/>
+   </xsd:sequence>
+   <xsd:attribute name="id" type="xsd:integer"/>
+   <xsd:attribute name="name" type="xsd:string"/>
+   <xsd:attribute name="description" type="xsd:string"/>
+   <xsd:attribute name="enabled" type="xsd:boolean"/>
+   <xsd:attribute name="guard" type="xsd:string"/>
+ </xsd:complexType>
+  
+  <xsd:complexType name="executionGraphType">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element name="Activity" type="executionTaskType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="If" type="IfType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="While" type="whileType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Switch" type="switchType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="OnSuccess" type="doType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="OnWarning" type="doType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="OnError" type="doType" minOccurs="0" maxOccurs="1"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <xsd:complexType name="executionTaskType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="Parent" type="parentType"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:integer"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="parentType">
+    <xsd:attribute name="id" type="xsd:integer"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="IfType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="Do" type="doType"/>
+      <xsd:element name="Else" type="doType" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:integer"/>
+    <xsd:attribute name="parent" type="xsd:integer"/>
+    <xsd:attribute name="if" type="xsd:integer"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="whileType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="Activity" type="executionTaskType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="If" type="IfType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="While" type="whileType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Switch" type="switchType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:integer"/>
+    <xsd:attribute name="parent" type="xsd:integer"/>
+    <xsd:attribute name="while" type="xsd:integer"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="switchType">
+    <xsd:sequence>
+      <xsd:element name="Case" type="caseType" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="Default" type="doType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:integer"/>
+    <xsd:attribute name="parent" type="xsd:integer"/>
+    <xsd:attribute name="switch" type="xsd:integer"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="doType">
+    <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="Activity" type="executionTaskType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="If" type="IfType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="While" type="whileType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Switch" type="switchType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="caseType">
+    <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="Activity" type="executionTaskType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="If" type="IfType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="While" type="whileType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Switch" type="switchType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  
+</xsd:schema>
