@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ToHActorPkg" Version="1.0.2" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <ServiceTypes>
+    <StatefulServiceType ServiceTypeName="ToHActorServiceType" HasPersistedState="true">
+      <Extensions>
+        <Extension Name="__GeneratedServiceType__" GeneratedId="c81988ee-9af9-42f3-8d1a-737cc16ef868|Persisted">
+          <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+            <DefaultService Name="ToHActorService" />
+            <ReplicatorEndpoint Name="ToHActorServiceReplicatorEndpoint" />
+            <ReplicatorConfigSection Name="ToHActorServiceReplicatorConfig" />
+            <ReplicatorSecurityConfigSection Name="ToHActorServiceReplicatorSecurityConfig" />
+            <StoreConfigSection Name="ToHActorServiceLocalStoreConfig" />
+            <ServiceEndpointV2 Name="ToHActorServiceEndpointV2" />
+          </GeneratedNames>
+        </Extension>
+      </Extensions>
+    </StatefulServiceType>
+  </ServiceTypes>
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>ToHActor.exe</Program>
+        <!--<ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048" />-->
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+  <ConfigPackage Name="Config" Version="1.0.0" />
+  <DataPackage Name="Activities" Version="1.0.0" />
+  <DataPackage Name="FSM" Version="1.0.0" />
+  <DataPackage Name="Workflows" Version="1.0.0" />
+  <DataPackage Name="XSD" Version="1.0.0" />
+  <DataPackage Name="KPU" Version="1.0.0" />
+  <DataPackage Name="Temp" Version="1.0.0" />
+  <Resources>
+    <Endpoints>
+      <!--<Endpoint Name="ToHActorServiceEndpointV2_1" />-->
+      <Endpoint Name="ToHActorServiceEndpointV2" />
+      <Endpoint Name="ToHActorServiceReplicatorEndpoint" />
+    </Endpoints>
+  </Resources>
+  <!-- Der Inhalt wird während des Buildvorgangs generiert. -->
+</ServiceManifest>

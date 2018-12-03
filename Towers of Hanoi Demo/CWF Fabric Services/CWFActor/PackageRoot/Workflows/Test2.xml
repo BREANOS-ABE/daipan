@@ -1,0 +1,67 @@
+<Workflow xmlns="urn:wexflow-schema" id="3" name="Workflow_Lol" description="A lolling workflow">
+	<Settings>
+		<Setting name="launchType" value="trigger" /> <!-- startup|trigger|periodic -->
+		<Setting name="enabled" value="true" /> <!-- true|false -->
+		<Setting name="statemachinetype" value="DemoWorkflowState" />
+	</Settings>
+	<Activities>
+		<Activity id="0" name="CheckMilkExpirationDate" description="asdasd" enabled="true">
+			<Setting name="ParameterType" value="MilkPackageDto" />
+			<Setting name="ExpirationDate" value="2017-08-31T12:14:00"/>
+			<Setting name="MaxFillCcm" value="1000"/>
+			<Setting name="CurrentFillCcm" value="322"/>
+			<Setting name="Manufacturer" value="Landmilch"/>
+			<Setting name="Vendor" value="Spar GmbH"/>
+		</Activity>
+		<Activity id="1" name="BeepActivity" description="HappySuccessBeep" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="c#6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="2" name="BeepActivity" description="HappySuccessBeep2" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="e6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="3" name="BeepActivity" description="BadMilkBeep" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="c6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="4" name="BeepActivity" description="BadMilkBeep2" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="d#6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="5" name="BeepActivity" description="BadMilkBeep2" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="f#6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="6" name="BeepActivity" description="ExceptionWarnBeep" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="d#5" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="7" name="BeepActivity" description="ExceptionWarnBeep2" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="f#5" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="8" name="BeepActivity" description="PreCheckBeep" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="a5" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="9" name="BeepActivity" description="AfterCheckBeep" enabled="true">
+			<Setting name="ParameterType" value="BeeperParams"/>
+			<Setting name="Note" value="a6" />
+			<Setting name="Duration" value="125" />
+		</Activity>
+		<Activity id="10" name="WorkflowInvoker" description="WorkflowInvoker..." enabled="true">
+			<Setting name="WexflowXMLPath" value="C:\\Wexflow\\Wexflow.xml" />	
+			<Setting name="StartWorkflowIndex" value="3" />				
+		</Activity>
+	</Activities>
+	
+</Workflow> 

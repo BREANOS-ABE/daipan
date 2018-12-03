@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="CWFStatelessPkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- Dies ist der Name Ihres ServiceType. 
+         Dieser Name muss mit der Zeichenfolge übereinstimmen, die im RegisterServiceAsync-Aufruf in "Program.cs" verwendet wird. -->
+    <StatelessServiceType ServiceTypeName="CWFStatelessType" />
+  </ServiceTypes>
+
+  <!-- Das Codepaket ist Ihre ausführbare Dienstdatei. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>CWFStateless.exe</Program>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <!-- Das Konfigurationspaket stellt den Inhalt des Konfigurationsverzeichnisses unter "PackageRoot" dar, das eine 
+         unabhängig aktualisierbare und mit einer Versionsangabe versehene Sammlung benutzerdefinierter Konfigurationseinstellungen für Ihren Dienst enthält. -->
+  <ConfigPackage Name="Config" Version="1.0.0" />
+  <DataPackage Name="Activities" Version="1.0.0" />
+  <DataPackage Name="FSM" Version="1.0.0" />
+  <DataPackage Name="Workflows" Version="1.0.0" />
+  <DataPackage Name="XSD" Version="1.0.0" />
+  <DataPackage Name="KPU" Version="1.0.0" />
+  <DataPackage Name="Temp" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <!-- Dieser Endpunkt wird vom Kommunikationslistener zum Abrufen des Ports verwendet, an dem 
+           gelauscht werden soll. Wenn Ihr Dienst partitioniert ist, beachten Sie bitte, dass dieser Port mit 
+           Replikaten anderer Partitionen gemeinsam verwendet wird, die in Ihrem Code platziert wurden. -->
+      <!--<Endpoint Name="ServiceEndpoint" />-->
+         <Endpoint Name="ServiceEndpointV2_1" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>

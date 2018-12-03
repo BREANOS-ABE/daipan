@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daipan.XClient.Views.Detail">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0, 10" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="0, 5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <AbsoluteLayout x:Name="absoluteLayout"
+                        BackgroundColor="Gray"
+                         />
+
+        <ScrollView x:Name="aboutText"
+                    Margin="20"
+                    IsVisible="True">
+            <StackLayout Padding="20"
+                         BackgroundColor="White"
+                         Opacity="0.9">
+            <StackLayout >
+                <BoxView Color="DarkRed" HeightRequest="3" />
+
+                <Label Text="I have Loaded the Driller!"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center" />
+                <BoxView Color="DarkRed" HeightRequest="3" />
+            </StackLayout>
+            <StackLayout VerticalOptions="Center" >
+                <Label HorizontalTextAlignment="Center" Font="Bold, Large">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="This is one small step for Franz, one giant leap for mankind." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal">
+            <Button x:Name="runButton"
+                    Text="Run Forest, Run!"
+                     />
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -5,7 +5,7 @@
     <id>BreanosConnectors.Kpu.Communication.Common</id>
 
     <!-- The package version number that is used when resolving dependencies -->
-    <version>0.7.0</version>
+    <version>0.7.7</version>
 
     <!-- Authors contain text that appears directly on the gallery -->
     <authors>FKE,EBE</authors>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+    <!-- The identifier that must be unique within the hosting gallery -->
+    <id>BreanosServiceBusConnector</id>
+
+    <!-- The package version number that is used when resolving dependencies -->
+    <version>0.0.7</version>
+
+    <!-- Authors contain text that appears directly on the gallery -->
+    <authors>Kellner</authors>
+
+    <!-- Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.  -->
+    <owners>Kellner</owners>
+
+    <!-- License and project URLs provide links for the gallery -->
+    <licenseUrl>http://bre-tfs02:8080/tfs/Daipan/_git/Service_Bus_Connector/ServiceBusConnector_Framework/</licenseUrl>
+    <projectUrl>http://bre-tfs02:8080/tfs/Daipan/_git/Assistant?path=%2FService%20Bus%20Connector</projectUrl>
+
+    <!-- The icon is used in Visual Studio's package manager UI -->
+    <iconUrl>file://smileBig.png</iconUrl>
+
+    <!-- If true, this value prompts the user to accept the license when
+            installing the package. -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <!-- Any details about this particular release -->
+    <releaseNotes>added catch for when no properties set on Send method</releaseNotes>
+
+    <!-- The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal. -->
+    <description>Service Bus Connector - Adapter class for interfacing with Microsoft Service Bus 1.1</description>
+
+    <!-- Copyright information -->
+    <copyright>Copyright ©2018 Breanos GmbH</copyright>
+
+    <!-- Tags appear in the gallery and can be used for tag searches -->
+    <tags>servicebus service bus adapter connector sbc</tags>
+
+    <!-- Dependencies are automatically installed when the package is installed -->
+    <dependencies>
+        <dependency id="ServiceBus.v1_1" version="1.0.6" />
+      <dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="2.0.0" />
+    </dependencies>
+    </metadata>
+
+    <!-- A readme.txt to display when the package is installed -->
+    <files>
+      <file src="bin/Release/ServiceBusConnector_Framework.dll" target="lib/netframework4.6.1"/>
+      <!--<file src="readme.txt" target="" />-->
+    </files>
+</package>

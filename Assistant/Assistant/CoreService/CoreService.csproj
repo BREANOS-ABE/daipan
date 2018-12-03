@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+	    <Version>0.7</Version>
+    <Company>Breanos GmbH</Company>
+    <Product>DAIPAN</Product>
+    <Authors>Breanos GmbH</Authors>
+    <Copyright>Breanos GmbH 2016-2018</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ.Core" Version="1.7.2.1" />
+    <PackageReference Include="BreanosConnectors.ActiveMQConnector" Version="0.0.15" />
+    <PackageReference Include="BreanosConnectors.Kpu.Communication.Common" Version="0.7.7" />
+    <PackageReference Include="BreanosConnectors.SerializationHelper" Version="0.0.5.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.1.1" />
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.283" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.1.283" />
+    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.283" />
+    <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="3.1.283" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.283" />
+    <PackageReference Include="NLog" Version="4.5.6" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.0" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\All.Interfaces.Standard\All.Interfaces.Standard.csproj" />
+    <ProjectReference Include="..\AssistantInternalInterfaces\AssistantInternalInterfaces.csproj" />
+    <ProjectReference Include="..\AssistantUtilities\AssistantUtilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

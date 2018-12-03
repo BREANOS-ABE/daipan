@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="CWF.Fabric.ServicesType" ApplicationTypeVersion="1.0.3" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CWFStateless_InstanceCount" DefaultValue="1" />
+    <Parameter Name="ToHActorService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="ToHActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="ToHActorService_TargetReplicaSetSize" DefaultValue="1" />
+  </Parameters>
+  <!-- Importieren Sie das "ServiceManifest" aus dem "ServicePackage". Der "ServiceManifestName" und die "ServiceManifestVersion" 
+       sollten mit den Attributen "Name" und "Version" des ServiceManifest-Elements übereinstimmen, die 
+       in der Datei "ServiceManifest.xml" definiert werden. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ToHActorPkg" ServiceManifestVersion="1.0.2" />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" />
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="CWFStatelessPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <DefaultServices>
+    <!-- Der Abschnitt unten erstellt Instanzen von Diensttypen, wenn eine Instanz dieses 
+       Anwendungstyps erstellt wird. Sie können auch mindestens eine Instanz von Diensttyp mithilfe des 
+       ServiceFabric-PowerShell-Moduls erstellen. 
+        
+       Das unten aufgeführte Attribut "ServiceTypeName" muss mit dem Namen übereinstimmen, der in der importierten Datei "ServiceManifest.xml"  definiert wird. -->
+    <Service Name="CWFStateless" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="CWFStatelessType" InstanceCount="[CWFStateless_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="ToHActorService" GeneratedIdRef="c81988ee-9af9-42f3-8d1a-737cc16ef868|Persisted">
+      <StatefulService ServiceTypeName="ToHActorServiceType" TargetReplicaSetSize="[ToHActorService_TargetReplicaSetSize]" MinReplicaSetSize="[ToHActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[ToHActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Users>
+      <User Name="LocalAdmin" AccountType="NetworkService">
+        <MemberOf>
+          <SystemGroup Name="Administratoren" />
+          <!--<SystemGroup Name="Administrators" />-->
+        </MemberOf>
+      </User>
+    </Users>
+  </Principals>
+</ApplicationManifest>

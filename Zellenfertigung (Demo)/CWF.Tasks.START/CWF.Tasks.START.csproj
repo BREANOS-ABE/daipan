@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Debug (xcopy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\cwf\Activities\&quot; /y )" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cwf.Core.Core\CWF.Core.csproj" />
+    <ProjectReference Include="..\FertigungszelleLibaryStandard\FertigungszelleLibaryStandard.csproj" />
+  </ItemGroup>
+
+</Project>

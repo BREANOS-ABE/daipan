@@ -1,0 +1,21 @@
+<Workflow xmlns="urn:wexflow-schema" id="5" name="Workflow_Lol" description="A lolling workflow">
+  <Settings>
+    <Setting name="launchType" value="trigger" />
+    <!-- startup|trigger|periodic -->
+    <Setting name="enabled" value="true" />
+    <!-- true|false -->
+    <Setting name="statemachinetype" value="DemoWorkflowState" />
+  </Settings>
+  <Activities>
+    <Activity id="0" name="BeepActivity" description="HappySuccessBeep" enabled="true">
+      <Setting name="ParameterType" value="BeeperParams"/>
+      <Setting name="Note" value="d#6" />
+      <Setting name="Duration" value="125" />
+    </Activity>
+
+    <Activity id="1" name="WorkflowInvoker" description="WorkflowInvoker..." enabled="true">
+      <Setting name="WexflowXMLPath" value="C:\\Wexflow\\Wexflow.xml" />
+      <Setting name="StartWorkflowIndex" value="5" />
+    </Activity>
+  </Activities>
+</Workflow>

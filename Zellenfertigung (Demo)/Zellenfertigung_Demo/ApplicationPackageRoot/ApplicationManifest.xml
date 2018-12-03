@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Zellenfertigung_DemoType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="GetGantryJobActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="GetGantryJobActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="GetGantryJobActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="InitializeWFParamsActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="InitializeWFParamsActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="InitializeWFParamsActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="NewWorkPieceActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="NewWorkPieceActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="NewWorkPieceActorService_TargetReplicaSetSize" DefaultValue="3" />
+  </Parameters>
+  <!-- Importieren Sie das "ServiceManifest" aus dem "ServicePackage". Der "ServiceManifestName" und die "ServiceManifestVersion" 
+       sollten mit den Attributen "Name" und "Version" des ServiceManifest-Elements übereinstimmen, die 
+       in der Datei "ServiceManifest.xml" definiert werden. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="NewWorkPiecePkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="GetGantryJobPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="InitializeWFParamsPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="GetGantryJobActorService" GeneratedIdRef="a79e71c2-7bb6-4207-80a4-0b1ba049682b|Persisted">
+      <StatefulService ServiceTypeName="GetGantryJobActorServiceType" TargetReplicaSetSize="[GetGantryJobActorService_TargetReplicaSetSize]" MinReplicaSetSize="[GetGantryJobActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[GetGantryJobActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="InitializeWFParamsActorService" GeneratedIdRef="8037745f-289b-406c-b0df-5b25bd1a8641|Persisted">
+      <StatefulService ServiceTypeName="InitializeWFParamsActorServiceType" TargetReplicaSetSize="[InitializeWFParamsActorService_TargetReplicaSetSize]" MinReplicaSetSize="[InitializeWFParamsActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[InitializeWFParamsActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="NewWorkPieceActorService" GeneratedIdRef="04cbcd4f-f89e-49cf-aa37-3fef8abb3fa1|Persisted">
+      <StatefulService ServiceTypeName="NewWorkPieceActorServiceType" TargetReplicaSetSize="[NewWorkPieceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[NewWorkPieceActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[NewWorkPieceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <!-- Der Abschnitt unten erstellt Instanzen von Diensttypen, wenn eine Instanz dieses 
+       Anwendungstyps erstellt wird. Sie können auch mindestens eine Instanz von Diensttyp mithilfe des 
+       ServiceFabric-PowerShell-Moduls erstellen. 
+        
+       Das unten aufgeführte Attribut "ServiceTypeName" muss mit dem Namen übereinstimmen, der in der importierten Datei "ServiceManifest.xml"  definiert wird. -->
+  </DefaultServices>
+</ApplicationManifest>

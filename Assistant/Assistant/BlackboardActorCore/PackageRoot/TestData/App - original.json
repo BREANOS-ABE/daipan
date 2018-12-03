@@ -1,0 +1,23 @@
+﻿{
+	"ContentTypeValues":
+	[
+		{
+			"content": "MU1",
+      "queues": {
+        "value1": {
+          "queueId": "1",
+          "queueName": "queue://DataMartTopic_1"
+        }
+      }
+		},
+		{
+			"content": "DU1",
+			"queues": {
+				"value1": {
+					"queueId": "1",
+					"queueName": "queue://MachineUnitTopic_1"
+				}
+			}
+		}
+	]
+}

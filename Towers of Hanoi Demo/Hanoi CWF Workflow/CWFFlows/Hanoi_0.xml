@@ -1,0 +1,46 @@
+<Workflow xmlns="urn:wexflow-schema" id="3" name="HanoiFlowchart" description="A lolling workflow">
+	<Settings>
+		<Setting name="launchType" value="startup" /> <!-- startup|trigger|periodic -->
+		<Setting name="enabled" value="true" /> <!-- true|false -->
+		<Setting name="statemachinetype" value="HanoiWorkflowState" />
+	</Settings>
+	<Activities>
+	<Activity id="99" name="SetupHanoiGameActivity" description="evenBetter" enabled="true">
+	<Setting name="ParameterType" value="HanoiSetupConfiguration" />
+	<Setting name="NumberDisks" value="19" />
+	</Activity>
+		<Activity id="1" name="CheckHanoiNotFinishedActivity" description="DrScott" enabled="true"/>
+		<Activity id="2" name="RunHanoiRoundActivity" description="Timewarp" enabled="true" />
+		<Activity id="4" name="PostHanoiStateActivity" description="ScienceFiction" enabled="true" />
+		<Activity id="42" name="PostHanoiStateActivity" description="DoubleFeature" enabled="true" />
+		<Activity id="6" name="PostHanoiStateActivity" description="BradAndJanet" enabled="true" />
+		<!-- <Activity id="642" name="BeepActivity" description="Beep Boop Boop Beep" enabled="false" > -->
+
+		<!-- <Setting name="ParameterType" value="BeeperParams" /> -->
+			<!-- <Setting name="Note" value="d6" /> -->
+			<!-- <Setting name="Duration" value="125" /> -->
+			<!-- </Activity> -->
+		<!-- <Activity id="644" name="BeepActivity" description="Beep Boop Boop Beep" enabled="false" > -->
+				<!-- <Setting name="ParameterType" value="BeeperParams" /> -->
+			<!-- <Setting name="Note" value="a5" /> -->
+			<!-- <Setting name="Duration" value="125" /> -->
+			<!-- </Activity> -->
+	</Activities>
+	<ActivitySetup>
+	<Activity id="99"><Parent id="-1"/></Activity>
+	<Activity id="42"><Parent id="99"/></Activity>
+		<While id="1" while="1" parent="42" >
+		
+				<!-- <Activity id="642"><Parent id="-1"/></Activity> -->
+				<Activity id="2"><Parent id="-1"/></Activity>
+				<!-- <Activity id="643"><Parent id="2"/></Activity> -->
+				<Activity id="4"><Parent id="2"/></Activity>
+				<!-- <Activity id="644"><Parent id="4"/></Activity> -->
+		</While>
+		<Activity id="6"><Parent id="1"/></Activity>
+	<OnWarning>
+			<Activity id="6"><Parent id="-1"/></Activity>
+			<Activity id="7"><Parent id="6"/></Activity>
+	</OnWarning>
+	</ActivitySetup>
+</Workflow> 

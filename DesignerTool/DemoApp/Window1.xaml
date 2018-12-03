@@ -1,0 +1,139 @@
+﻿<Window x:Class="DesignerTool.Window1"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:DiagramDesigner;assembly=DiagramDesigner"
+        xmlns:local="clr-namespace:DesignerTool"
+        WindowState="Maximized"
+        SnapsToDevicePixels="True"
+		Title="{Binding WindowTitle}"        
+		Height="850" Width="1100"
+        MouseUp="Window_MouseUp">
+
+
+    <Window.InputBindings>
+        <KeyBinding Key="Del"
+                    Command="{Binding DeleteSelectedItemsCommand}" />
+    </Window.InputBindings>
+
+    <DockPanel Margin="0">
+        <ToolBar Height="35" DockPanel.Dock="Top">
+            <Button ToolTip="New Diagram"
+                    Content="New"
+					Margin="8,0,3,0"
+                    Command="{Binding CreateNewDiagramCommand}"/>
+            <Button ToolTip="Save Diagram"
+                    Content="Save"
+                    Margin="8,0,3,0"
+                    Command="{Binding SaveDiagramCommand}" />
+            <Button ToolTip="Load Diagram"
+                    Content="Load"
+                    Margin="8,0,3,0"
+                    Command="{Binding LoadDiagramCommand}" />
+            <Button ToolTip="Export the currently displayed workflow"
+                    Content="Export Workflow"
+                    Margin="8,0,3,0"
+                    Command="{Binding ExportToXmlCommand}" />
+            <Label Margin="30,0,3,0"
+                   VerticalAlignment="Center"
+                   Content="Start Activity:" />
+            <!--<ComboBox Margin="8,0,3,0"
+                     Width="200"
+                     ToolTip="Saved Diagrams"
+                      SelectedItem="{Binding SavedDiagramId}"
+                     ItemsSource="{Binding SavedDiagrams}"/>-->
+            <ComboBox Margin="8,0,3,0"
+                     Width="200"
+                      DataContext="{Binding DiagramViewModel}"
+                     ToolTip="Start Activiy"
+                     SelectedItem="{Binding StartActivity}"
+                     ItemsSource="{Binding Activities}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="160"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Id}" Grid.Column="0"/>
+                            <TextBlock Text="{Binding ActivityName}" Grid.Column="1" />
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </ToolBar>
+
+        <Grid Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230" MaxWidth="320"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!-- ToolBox Control -->
+            <ScrollViewer Name="scrl_Tools" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical" MaxWidth="230">
+                <local:ToolBoxControl Grid.Column="0"
+                                  DataContext="{Binding ToolBoxViewModel}" />
+                <Expander Header="Workflow Properties" DataContext="{Binding DiagramViewModel}">
+                    <StackPanel Orientation="Vertical">
+                        <Label>Id</Label>
+                        <TextBox Text="{Binding WorkflowId}"/>
+                        <Label>Name</Label>
+                        <TextBox Text="{Binding WorkflowName}"/>
+                        <Label>Description</Label>
+                        <TextBox Text="{Binding WorkflowDescription}"/>
+                        <Label>Settings</Label>
+                        <ListView ItemsSource="{Binding WorkflowSettings}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" MinWidth="200">
+                                    <Label Content="Key" />
+                                        <TextBox Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Label Content="Value" />
+                                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <Button Content="-" Command="{Binding DataContext.RemoveWorkflowSettingCommand, RelativeSource={RelativeSource AncestorType=Expander}}" CommandParameter="{Binding}" />
+                                    </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                        <Button Content="+" Command="{Binding AddWorkflowSettingCommand}"/>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Selected Transitions" IsExpanded="True" DataContext="{Binding DiagramViewModel}">
+                    <ListView ItemsSource="{Binding SelectedConnections}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" MinWidth="200">
+                                    <Separator Foreground="Black"/>
+                                    <TextBlock>
+                                        <TextBlock.Inlines>
+                                            <Run>Transition </Run>
+                                            <Run Text="{Binding Id}"/>
+                                            <Run> from Activity </Run>
+                                            <Run Text="{Binding SourceConnectorInfo.DataItem.Id}"/>
+                                            <Run> to Activity </Run>
+                                            <Run Text="{Binding SinkConnectorInfo.DataItem.Id}"/>
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                    <Label Content="Condition" />
+                                    <TextBox Text="{Binding ConditionText, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Expander>
+            </StackPanel>
+            </ScrollViewer>
+            <GridSplitter Grid.Column="1"
+						  HorizontalAlignment="Left"
+						  VerticalAlignment="Stretch"
+						  Background="Transparent"
+						  Width="3" />
+
+            <!-- Diagram Control -->
+            <s:DiagramControl Grid.Column="1"
+                                  DataContext="{Binding DiagramViewModel}"
+                                  Margin="3,1,0,0" />
+        </Grid>
+    </DockPanel>
+
+</Window>

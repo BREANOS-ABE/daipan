@@ -1,0 +1,12 @@
+<Workflow xmlns="urn:wexflow-schema" id="6" name="Workflow_Lol" description="A lolling workflow">
+	<Settings>
+		<Setting name="launchType" value="trigger" /> <!-- startup|trigger|periodic -->
+		<Setting name="enabled" value="true" /> <!-- true|false -->
+		<Setting name="statemachinetype" value="DemoWorkflowState" />
+	</Settings>
+	<Activities>		
+		<Activity id="0" name="Trace" description="Trace activity" enabled="true">
+			<Setting name="Message" value="Zweig 2" />			
+		</Activity>			
+	</Activities>	
+</Workflow> 

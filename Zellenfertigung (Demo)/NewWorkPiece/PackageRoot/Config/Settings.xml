@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <!-- Der Inhalt wird während des Buildvorgangs generiert. -->
+  <Section Name="Amq">
+    <Parameter Name="AMQConnection" Value="activemq:tcp://BRE-DEV02.breanos.local:61616" />
+    <Parameter Name="User" Value="admin" />
+    <Parameter Name="Password" Value="admin" />
+    <Parameter Name="Queue" Value="New" />
+  </Section>
+  <Section Name="NewWorkPieceActorServiceReplicatorConfig">
+    <Parameter Name="ReplicatorEndpoint" Value="NewWorkPieceActorServiceReplicatorEndpoint" />
+    <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
+  </Section>
+  <Section Name="NewWorkPieceActorServiceReplicatorSecurityConfig">
+    <Parameter Name="CredentialType" Value="None" />
+  </Section>
+</Settings>

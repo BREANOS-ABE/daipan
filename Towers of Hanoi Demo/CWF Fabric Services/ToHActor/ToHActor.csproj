@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+    <TargetLatestRuntimePatch>False</TargetLatestRuntimePatch>
+    <UpdateServiceFabricManifestEnabled>True</UpdateServiceFabricManifestEnabled>
+    <ServicePackagePath>PackageRoot</ServicePackagePath>
+    <ServicePackagePrefix>$(MSBuildProjectName)</ServicePackagePrefix>
+    <FabActUtilWorkingDir>$(BaseIntermediateOutputPath)\FabActUtilTemp</FabActUtilWorkingDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="KPURegistration.cs" />
+    <Compile Remove="Manifest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BreanosConnectors.ActiveMQConnector" Version="0.0.15" />
+    <PackageReference Include="BreanosConnectors.Kpu.Communication.Utilities" Version="0.0.3" />
+    <PackageReference Include="BreanosConnectors.SerializationHelper" Version="0.0.5.1" />
+    <PackageReference Include="BreanosConnectors.Utilities" Version="0.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.2.176" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.2.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Workflow.Core.Wexflow\Wexflow.Core.Core\CWF.Core.csproj" />
+    <ProjectReference Include="..\CWF.Interfaces\CWF.Interfaces.csproj" />
+    <ProjectReference Include="..\CWFStateless\CWFStateless.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PackageRoot\Activities\" />
+    <Folder Include="PackageRoot\FSM\" />
+    <Folder Include="PackageRoot\Temp\" />
+    <Folder Include="PackageRoot\XSD\" />
+    <Folder Include="PackageRoot\Workflows\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BreanosConnectors.Kpu.Communication.Common">
+      <HintPath>BreanosConnectors.Kpu.Communication.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="PackageRoot\KPU\Hanoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="PackageRoot\Workflows\Hanoi_0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

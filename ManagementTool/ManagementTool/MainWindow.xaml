@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfTutorialSamples.ListBox_control.ListBoxSelectionSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListBoxSelectionSample" Height="295.184" Width="588.32" Loaded="LoadedM">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Right" Margin="10,0">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,0,0,5" />
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock FontWeight="Bold" Margin="0,0,0,10">KPU selection</TextBlock>
+            <Button Name="btnStart" Click="btnStart_Click">Start</Button>
+            <Button Name="btnStop" Click="btnStop_Click">Stop</Button>
+            <Button Name="btnDeployment" Click="btnDeployment_Click">Deployment</Button>
+            <Button Name="btnExit" Click="OnClickExit">Exit</Button>
+        </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0" Name="lbTodoList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="lbTodoList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"  Text="{Binding Title}" />
+                        <!--<ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}" />-->
+                            <Button Grid.Column="1" Name="btnStart" Click="btnStart_Click" ClickMode="Release">Start</Button>
+                            <Button Grid.Column="2" Name="btnStop" Click="btnStop_Click" ClickMode="Release">Stop</Button>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Grid.Row="1" Name="btnDeployment2" Click="btnDeployment_Click" ClickMode="Release">Deployment</Button>
+        </Grid>
+    </DockPanel>
+</Window>

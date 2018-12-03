@@ -1,0 +1,23 @@
+<Workflow xmlns="urn:wexflow-schema" id="10" name="HanoiFlowchart" description="A lolling workflow">
+	<Settings>
+		<Setting name="launchType" value="startup" /> <!-- startup|trigger|periodic -->
+		<Setting name="enabled" value="true" /> <!-- true|false -->
+		<Setting name="statemachinetype" value="HanoiWorkflowState" />
+	</Settings>
+	<Activities>
+	<Activity id="99" name="SetupHanoiGameActivity" description="evenBetter" enabled="true">
+	<Setting name="ParameterType" value="HanoiSetupConfiguration" />
+	<Setting name="NumberDisks" value="5" />
+	</Activity>
+		<Activity id="1" name="CheckHanoiNotFinishedActivity" description="DrScott" enabled="true"/>
+		<Activity id="2" name="RunHanoiRoundActivity" description="Timewarp" enabled="true" />
+		<Activity id="4" name="PostHanoiStateToActiveMQActivity" description="ScienceFiction" enabled="true" />	
+	</Activities>
+  <Transitions>
+    <Transition id="1" from="-1" to="99"/>
+    <Transition id="2" from="99" to="2"/>
+    <Transition id="3" from="2" to="4" />
+    <!-- Transition to loop -->
+    <Transition id="4" from="4" to="2" condition="!x.IsFinished" />
+  </Transitions>
+</Workflow> 

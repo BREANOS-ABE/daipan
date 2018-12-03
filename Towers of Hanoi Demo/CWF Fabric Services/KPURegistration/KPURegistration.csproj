@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Copyright ©2018 Breanos GmbH</Authors>
+    <Company>Breanos GmbH</Company>
+    <Description>KPURegistration</Description>
+    <PackageLicenseUrl>http://bre-tfs02:8080/tfs/demos/Towers%20of%20Hanoi%20Demo/_git/Towers%20of%20Hanoi%20Demo</PackageLicenseUrl>
+    <PackageProjectUrl>http://bre-tfs02:8080/tfs/demos/Towers%20of%20Hanoi%20Demo/_git/Towers%20of%20Hanoi%20Demo</PackageProjectUrl>
+    <PackageTags>KPURegistration</PackageTags>
+    <PackageReleaseNotes>Ready for Service Fabric</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BreanosConnectors.ActiveMQConnector" Version="0.0.15" />
+    <PackageReference Include="BreanosConnectors.Kpu.Communication.Common" Version="0.0.3" />
+    <PackageReference Include="BreanosConnectors.Kpu.Communication.Utilities" Version="0.0.3" />
+    <PackageReference Include="BreanosConnectors.SerializationHelper" Version="0.0.5.1" />
+  </ItemGroup>
+
+</Project>
