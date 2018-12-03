@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CyPAN.RuntimeAssemblyBuilder</name>
+    </assembly>
+    <members>
+        <member name="T:CyPAN.RuntimeAssemblyBuilder.ClassDefinition">
+            <summary>
+            Represents a class under the context of the CyPAN RuntimeAssemblyBuilder.
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.Namespace">
+            <summary>
+            The namespace containing the class
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.ClassName">
+            <summary>
+            The class name
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.UsingLines">
+            <summary>
+            The using lines added prior to the class definition
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.Head">
+            <summary>
+            Getter method for the head of the class, consisting of the usings, namespace- and class openings
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.Methods">
+            <summary>
+            The methods defined in that class in pure c# source form
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.AssemblyLocations">
+            <summary>
+            Locations of assemblies required for building
+            </summary>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.AddAssemblyLocation(System.String)">
+            <summary>
+            Adds a given location to the list of used assemblies if it hasn't already been added
+            </summary>
+            <param name="location"></param>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.AddUsing(System.String)">
+            <summary>
+            transforms a given string "X" into "using X;" and adds it to the list of using lines
+            </summary>
+            <param name="usingCode">the using to be added</param>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.SetMethod(System.Boolean,System.Boolean,System.String,System.String,System.String,System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            adds/replaces a method definition+body to the method dictionary
+            </summary>
+            <param name="isPublic">whether the method is public</param>
+            <param name="isStatic">whether the method is static</param>
+            <param name="returnType">return type of the method, e.g. System.Boolean</param>
+            <param name="methodName">the name of the method by which to call it, e.g. Foo</param>
+            <param name="methodBody">the body of the method, e.g. return 1;</param>
+            <param name="parameters">the method's parameters as tuples of the parameter type full name and the parameter name</param>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.ToString">
+            <summary>
+            override to string method, returns the generated source code of the class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassDefinition.CompileToAssembly">
+            <summary>
+            Attempts compilation of the aggregated source code and will return the compiled assembly's byte array (may be null) and the EmitResult from the compilation
+            </summary>
+            <returns>ValueTuple&lt;byte,EmitResult&gt; of the compiled assembly's bytes and the result of the compilation</returns>
+        </member>
+        <member name="T:CyPAN.RuntimeAssemblyBuilder.ClassFactory">
+            <summary>
+            Static factory class for creating different kinds of class definitions
+            </summary>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ClassFactory.CreateWorkflowConditionCollectionClassDefinition(System.String,System.String,System.Type,System.String[])">
+            <summary>
+            Factory class creator/getter for CWF's transition condition method classes
+            </summary>
+            <param name="ns">Namespace</param>
+            <param name="classname">Class name</param>
+            <param name="dataType">the data type of the condition check object to be used.</param>
+            <param name="additionalUsings">optional additional used namespaces</param>
+            <returns></returns>
+        </member>
+        <member name="T:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionClassDefinition">
+            <summary>
+            Specialization of ClassDefinition for the CWF's transition condition method classes
+            </summary>
+        </member>
+        <member name="P:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionClassDefinition.DataTypeFullName">
+            <summary>
+            the type of object for the condition checks to operate on
+            </summary>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionClassDefinition.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="T:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionFactory">
+            <summary>
+            factory implementation for CWF's transition condition method classes
+            </summary>
+        </member>
+        <member name="F:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionFactory._definition">
+            <summary>
+            the internally used ConditionCollectionClassDefinition
+            </summary>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionFactory.#ctor(CyPAN.RuntimeAssemblyBuilder.ConditionCollectionClassDefinition)">
+            <summary>
+            constructor
+            </summary>
+            <param name="def"></param>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionFactory.AddConditionMethod(System.String,System.String)">
+            <summary>
+            Adds/Replaces a boolean method of given name for checking against a value of the data type to be used 
+            </summary>
+            <param name="methodName"></param>
+            <param name="condition"></param>
+        </member>
+        <member name="M:CyPAN.RuntimeAssemblyBuilder.ConditionCollectionFactory.Finish">
+            <summary>
+            Finishes creation of the ConditionCollectionClassDefinition and returns it. 
+            This object of type ConditionCollectionFactory looses its function after calling Finish()
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
