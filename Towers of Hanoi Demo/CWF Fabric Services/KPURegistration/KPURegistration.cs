@@ -152,5 +152,449 @@ namespace ToHActor
             bool b = await connector.ConnectAsync(connectionString, User, Password);
             connector.SendAsync(serialized, queueString, BrockerCommands.PACKAGE, new (string, object)[]{ ("KpuId", "Hanoi")}).Wait();
         }
+		
+		private static string GetMenuString()
+
+{
+
+
+
+    MenuDefinition mdef = new MenuDefinition
+
+    {
+        MenuGroups = new MenuGroup[] {
+
+                                  new MenuGroup() {
+
+                      GroupPriority = 1,
+
+                                        PositionAnchor = 1,
+
+                                        MenuItems = new MenuItem[] {
+
+                                               new MenuItem() {
+
+                      ItemIdentifier = "HanoiMaster",
+
+                                                      TextResourceId = "txt.HanoiMaster" ,
+
+                                                      IconXamlGeometry = "icon.HanoiMaster",
+
+                    PermissionIdentifier = "Hanoi.view",
+
+                                                      Children = new MenuItem[] {
+
+                                                             new MenuItem(){
+
+           ItemIdentifier = "HanoiRestart",
+
+                                                 TextResourceId = "kpu.Hanoi.RestartHanoi",
+
+                                                                   Command = "RestartKpu" ,
+
+                                                                   IconXamlGeometry = "icon.HanoiRestart",
+
+   PermissionIdentifier = "Hanoi.restart"
+
+
+},
+
+                                                             new MenuItem()
+{
+
+   ItemIdentifier = "HanoiStop" ,
+
+                                                       TextResourceId = "kpu.Hanoi.StopHanoi",
+
+                                                                   Command = "StopKpu",
+
+                                                                   IconXamlGeometry = "icon.HanoiStop",
+
+          !PermissionIdentifier = "Hanoi.stop"
+
+
+},
+
+                                                             new MenuItem()
+{
+
+     ItemIdentifier = "HanoiStart",
+
+                                                    TextResourceId = "kpu.Hanoi.StartHanoi",
+
+                                                                   Command = "StartKpu",
+
+                                                                   IconXamlGeometry = "icon.HanoiStart",
+
+     PermissionIdentifier = "Hanoi.start"
+
+},
+
+                                                             new MenuItem()
+{
+
+     ItemIdentifier = "Management",
+
+                                                           !TextResourceId = "Administer",
+
+                                                                   PermissionIdentifier = "Hanoi.manage",
+
+
+
+                                                                   Children = new MenuItem[] {
+
+!                                                                           new MenuItem() {
+
+                      ItemIdentifier = "PlannedDowntimes",
+
+                                                        TextResourceId = "x.PlannedDowntimes",
+
+                                                                          Command = "nav.Downtimes",
+
+                                                                                 CommandParameter = "t=planned",
+
+                                                                                 IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                 PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+
+},
+
+                                                                          new MenuItem()
+{
+
+    ItemIdentifier = "Downtimes",
+
+                                                                                 PermissionIdentifier = "Hanoi.manage.downtime",
+
+                                                                                 Children = new MenuItem[] {
+
+                                  new MenuItem(){
+
+                                                      ItemIdentifier = "PlannedDowntimes",
+
+                                                                            TextResourceId = "x.PlannedDowntimes",
+
+                                                                                 Command = "nav.Downtimes",
+
+                                                                                               CommandParameter = "t=planned",
+
+                                                                                               IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+                                                                                        },
+
+                                                                                       new MenuItem()
+{
+
+   ItemIdentifier = "UnplannedDowntimes",
+
+                                                          TextResourceId = "x.UnplannedDowntimes",
+
+                                                                               Command = "nav.Downtimes",
+
+                                                                                      CommandParameter = "t=unplanned",
+
+                                                                                               IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+                                                                                        },
+
+                                                                                       new MenuItem()
+{
+
+    ItemIdentifier = "AllDowntimes",
+
+                                                          TextResourceId = "x.AllDowntimes",
+
+                                                                Command = "nav.Downtimes",
+
+                                                                                  CommandParameter = "t=all",
+
+                                                                                               IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "[http://Hanoi.m! anage.downtimes.vi]Hanoi.manage.downtimes.view"
+
+                                                                                        }
+
+                                                                                }
+
+                                                                        }
+
+                                                                   }
+
+                                                            }
+
+                                                      }
+
+                                               },
+
+                                         new MenuItem()
+{
+
+    ItemIdentifier = "HanoiStop2",
+
+                                                      TextResourceId = "kpu.Hanoi.StopHanoi",
+
+                                           Command = "StopKpu",
+
+                                                      IconXamlGeometry = "B32 T9 L12 20",
+
+                                                      PermissionIdentifier = "Hanoi.stop"
+
+
+},
+
+                                               new MenuItem()
+{
+
+    ItemIdentifier = "HanoiStart2",
+
+                                                      TextResourceId = "kpu.Hanoi.StartHanoi",
+
+                                                      Command = "StartKpu",
+
+                                IconXamlGeometry = "B32 T9 L12 20",
+
+                                                      PermissionIdentifier = "Hanoi.start"
+
+                                               }
+
+                                        }
+
+                                  }
+
+                           }
+
+    };
+
+
+
+    string ret = BreanosConnectors.SerializationHelper.Serialize<MenuProvider.Interfaces.MenuDefinition>(mdef);
+
+    return ret;
+
+}
+
+
+/*
+  private static string GetMenuString()
+
+             {
+
+ 
+
+                    MenuDefinition mdef = new MenuDefinition
+
+                    {
+
+                      &nb! sp;    MenuGroups = new MenuGroup[] {
+
+                                  new MenuGroup() {
+
+                      ! ;                  GroupPriority = 1,
+
+                                        PositionAnchor = 1,
+
+                                        MenuItems = new MenuItem[] {
+
+                                               new MenuItem() {
+
+                      &! nbsp;                               ItemIdentifier="HanoiMaster",
+
+                                                      TextResourceId = "txt.HanoiMaster"! ,
+
+                                                      IconXamlGeometry = "icon.HanoiMaster",
+
+                    &n! bsp;                                 PermissionIdentifier ="Hanoi.view",
+
+                                                      Children = new MenuItem[] {
+
+                                                             new MenuItem(){
+
+           &nbs! p;                                                       ItemIdentifier = "HanoiRestart",
+
+                                                 &n! bsp;                 TextResourceId = "kpu.Hanoi.RestartHanoi",
+
+                                                                   Command = "RestartKpu" ,
+
+                                                                   IconXamlGeometry = "icon.HanoiRestart",
+
+  &n! bsp;                                                                PermissionIdentifier = "Hanoi.restart"
+
+                                              ! ;               },
+
+                                                             new MenuItem(){
+
+     &nb! sp;                                                             ItemIdentifier = "HanoiStop" ,
+
+                                                       &n! bsp;           TextResourceId = "kpu.Hanoi.StopHanoi",
+
+                                                                   Command = "StopKpu",
+
+                                                                   IconXamlGeometry = "icon.HanoiStop",
+
+          !                                                          PermissionIdentifier = "Hanoi.stop"
+
+                                          &! nbsp;                  },
+
+                                                             new MenuItem(){
+
+             &nbs! p;                                                     ItemIdentifier = "HanoiStart",
+
+                                                   &nb! sp;               TextResourceId = "kpu.Hanoi.StartHanoi",
+
+                                                                   Command = "StartKpu",
+
+                                                                   IconXamlGeometry = "icon.HanoiStart",
+
+     &nbs! p;                                                             PermissionIdentifier = "Hanoi.start"
+
+                                                 &nb! sp;           },
+
+                                                             new MenuItem(){
+
+         &! nbsp;                                                         ItemIdentifier = "Management",
+
+                                                           !         TextResourceId = "Administer",
+
+                                                                   PermissionIdentifier = "Hanoi.manage",
+
+ 
+
+                                                                   Children = new MenuItem[] {
+
+!                                                                           new MenuItem() {
+
+                     ! ;                                                            ItemIdentifier = "PlannedDowntimes",
+
+                                                       &nbs! p;                         TextResourceId = "x.PlannedDowntimes",
+
+                                                                          ! ;       Command = "nav.Downtimes",
+
+                                                                                 CommandParameter = "t=planned",
+
+                                                                                 IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                 PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+            &n! bsp;                                                             },
+
+                                                                          new MenuItem() {
+
+                                                                                 ItemIdentifier = "Downtimes",
+
+                                                                                 PermissionIdentifier = "Hanoi.manage.downtime",
+
+                                                                                 Children = new MenuItem[] {
+
+                                 &nbs! p;                                                      new MenuItem(){
+
+                                                     &nbs! p;                                         ItemIdentifier = "PlannedDowntimes",
+
+                                                                           &n! bsp;                   TextResourceId = "x.PlannedDowntimes",
+
+                                                                                &nb! sp;              Command = "nav.Downtimes",
+
+                                                                                               CommandParameter = "t=planned",
+
+                                                                                               IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+                                                                                        },
+
+                &nbs! p;                                                                       new MenuItem(){
+
+                                                &nb! sp;                                              ItemIdentifier = "UnplannedDowntimes",
+
+                                                          !                                      TextResourceId = "x.UnplannedDowntimes",
+
+                                                                               !                 Command = "nav.Downtimes",
+
+                                                                                      ! ;         CommandParameter = "t=unplanned",
+
+                                                                                               IconXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "Hanoi.manage.downtimes.view"
+
+                                                                                        },
+
+               &nbs! p;                                                                        new MenuItem(){
+
+                                   &nbs! p;                                                           ItemIdentifier = "AllDowntimes",
+
+                                                          !                                      TextResourceId = "x.AllDowntimes",
+
+                                                                ! ;                               Command = "nav.Downtimes",
+
+                                                                                  &nb! sp;            CommandParameter = "t=all",
+
+                                                                                               Ico! nXamlGeometry = "L20 10 B30 30",
+
+                                                                                               PermissionIdentifier = "[http://Hanoi.m! anage.downtimes.vi]Hanoi.manage.downtimes.view"
+
+                                                                                        }
+
+ ! ;                                                                                }
+
+                                                                      &! nbsp;   }
+
+                                                                   }
+
+                                         &nb! sp;                   }                                                          
+
+                                                      }                    &! nbsp;                        
+
+                                               },
+
+                                       &nb! sp;       new MenuItem(){
+
+                                                      ItemIdentifier = "HanoiStop2",
+
+                                                      TextResourceId = "kpu.Hanoi.StopHanoi",
+
+                                          &nb! sp;           Command = "StopKpu",
+
+                                                      IconXamlGeometry = "B32 T9 L12 20",
+
+                                                      PermissionIdentifier = "Hanoi.stop"
+
+                                     &nbs! p;         },
+
+                                               new MenuItem(){
+
+                                     &! nbsp;                ItemIdentifier = "HanoiStart2",
+
+                                                      TextResourceId = "kpu.Hanoi.StartHanoi",
+
+                                                      Command = "StartKpu",
+
+                               &n! bsp;                      IconXamlGeometry = "B32 T9 L12 20",
+
+                                                      PermissionIdentifier = "Hanoi.start"
+
+                                               }
+
+                                        }                          ! ;            
+
+                                  }                                
+
+                           }
+
+                    };
+
+ 
+
+                    string ret = BreanosConnectors.SerializationHelper.Serialize<MenuProvider.Interfaces.MenuDefiniti! on>(mdef);
+
+                    return ret;
+
+             }
+
+ 
+*/
     }
 }
